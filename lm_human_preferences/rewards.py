@@ -9,7 +9,6 @@ from lm_human_preferences.language import trained_models, model
 from lm_human_preferences.utils import core as utils
 from lm_human_preferences.utils.core import Schema
 
-
 # TODO: combine this with TrainedRewardModel
 class RewardModelTrainer:
     def __init__(

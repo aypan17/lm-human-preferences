@@ -4,6 +4,8 @@ import json
 import os
 from functools import lru_cache
 
+#from transformers import GPT2Tokenizer
+
 import tensorflow as tf
 import regex as re
 
@@ -114,6 +116,19 @@ class ReversibleEncoder:
         return text
 
 
+class HuggingfaceEncoder:
+    def __init__(self):
+        self.tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+        self.eot_token = self.tokenizer.eos_token
+        self.padding_token = self.tokenizer.pad_token
+
+    def encode(self, text):
+        return self.tokenizer(text)['input_ids']
+
+    def decode(self, tokens, pretty=False):
+        del pretty
+        return self.tokenizer.decode(tokens)
+
 def read_file(path):
     with tf.gfile.Open(path, "rb") as fh:
         return fh.read()
@@ -135,7 +150,7 @@ class Encoding:
         self.n_vocab = n_vocab
 
         if base_path is None:
-            base_path = os.path.join("gs://gpt-2/encodings", name)
+            base_path = os.path.join("./gpt-2/models/124M/", name)
 
         self.base_path = base_path
         if name != "test":
@@ -158,6 +173,11 @@ class Encoding:
 
             return TestEncoder()
 
+        # encoder = HuggingfaceEncoder()
+        # assert encoder.padding_token >= self.n_vocab
+        # return encoder
+
+        bpe_data = read_file(self.bpe_path).decode()
         encoder_dict = json.loads(read_file(self.encoder_path).decode())
         bpe_data = read_file(self.bpe_path).decode()
         bpe_merges = [tuple(merge_str.split()) for merge_str in bpe_data.split("\n")[1:-1]]

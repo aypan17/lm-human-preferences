@@ -5,6 +5,7 @@ import os
 from dataclasses import dataclass, field
 from functools import partial
 from typing import Optional
+import urllib.request
 
 import numpy as np
 import tensorflow as tf
@@ -79,7 +80,8 @@ def download_labels(source, label_type, question_schemas, total_labels, comm):
 
     # TODO: download on just one rank?  then do: labels = utils.mpi_bcast_tensor_dict(labels, comm=comm)
     if source != 'test':
-        with open(gcs.download_file_cached(source, comm=comm)) as f:
+        #with open(gcs.download_file_cached(source, comm=comm)) as f:
+        with urllib.request.urlopen(source) as f:
             results = json.load(f)
             print('Num labels found in source:', len(results))
     else:
@@ -271,7 +273,7 @@ def train(hparams: HParams):
             embed_queries=lm_tasks.query_formatter(hparams.task, encoder),
             temperature=hparams.task.policy.temperature,
             build_respond=False)
-
+        
         reward_model = rewards.RewardModelTrainer(m, is_root=comm.Get_rank() == 0)
 
         query_sampler = lm_tasks.make_query_sampler(

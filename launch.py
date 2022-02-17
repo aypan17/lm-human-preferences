@@ -66,7 +66,7 @@ def get_train_reward_experiments():
     sentiment = combos(
         _books_task,
 
-        bind('labels.source', 'gs://lm-human-preferences/labels/sentiment/offline_5k.json'),
+        bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/sentiment/offline_5k.json'),
         bind('labels.num_train', 4_992),
         bind('run.seed', 1)
     )
@@ -75,7 +75,7 @@ def get_train_reward_experiments():
     descriptiveness = combos(
         _books_task,
 
-        bind('labels.source', 'gs://lm-human-preferences/labels/descriptiveness/offline_5k.json'),
+        bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/descriptiveness/offline_5k.json'),
         bind('labels.num_train', 4_992),
         bind('run.seed', 1)
     )
@@ -84,9 +84,9 @@ def get_train_reward_experiments():
         bind_nested('task', summarize_cnndm_task),
         _shared,
 
-        # bind('labels.source', 'gs://lm-human-preferences/labels/cnndm/offline_60k.json'),
+        # bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/cnndm/offline_60k.json'),
         # bind('labels.num_train', 60_000),
-        bind('labels.source', 'gs://lm-human-preferences/labels/cnndm/online_45k.json'),
+        bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/cnndm/online_45k.json'),
         bind('labels.num_train', 46_000),
 
         bind('batch_size', 2 * 8),
@@ -99,9 +99,9 @@ def get_train_reward_experiments():
         bind_nested('task', summarize_tldr_task),
         _shared,
 
-        # bind('labels.source', 'gs://lm-human-preferences/labels/tldr/offline_60k.json'),
+        # bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/tldr/offline_60k.json'),
         # bind('labels.num_train', 60_000),
-        bind('labels.source', 'gs://lm-human-preferences/labels/tldr/online_45k.json'),
+        bind('labels.source', 'https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/tldr/online_45k.json'),
         bind('labels.num_train', 46_000),
 
         bind('batch_size', 2 * 8),
@@ -189,7 +189,7 @@ def get_experiments():
     return locals()
 
 
-def launch_train_policy(exp, name, dry_run=False, mpi=8, mode='local', save_dir='/tmp/save/train_policy', **extra_hparams):
+def launch_train_policy(exp, name, dry_run=False, mpi=2, mode='local', save_dir='/tmp/save/train_policy', **extra_hparams):
     experiment_dict = get_experiments()
     try:
         trials = experiment_dict[exp]
@@ -201,7 +201,7 @@ def launch_train_policy(exp, name, dry_run=False, mpi=8, mode='local', save_dir=
         hparam_class=train_policy.HParams, extra_hparams=extra_hparams, dry_run=dry_run)
 
 
-def launch_train_reward(exp, name, dry_run=False, mpi=8, mode='local', save_dir='/tmp/save/train_reward', **extra_hparams):
+def launch_train_reward(exp, name, dry_run=False, mpi=2, mode='local', save_dir='/tmp/save/train_reward', **extra_hparams):
     experiment_dict = get_train_reward_experiments()
     try:
         trials = experiment_dict[exp]

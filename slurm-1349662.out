@@ -1,0 +1,18 @@
+Caution: the Python 3.7 module is intended for use on Ubuntu 18.04 machines, but most packages will probably work fine on Ubuntu 20.04.
+
+Loading tensorflow/1.15.0-gpu-py37
+  Loading requirement: python/3.7 cuda/10.0 cudnn/7.6-cuda10.0
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pickle_fn'
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[47499,1],1]
+  Exit code:    1
+--------------------------------------------------------------------------

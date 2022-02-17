@@ -1,0 +1,26 @@
+Caution: the Python 3.7 module is intended for use on Ubuntu 18.04 machines, but most packages will probably work fine on Ubuntu 20.04.
+
+Loading tensorflow/1.15.0-gpu-py37
+  Loading requirement: python/3.7
+--------------------------------------------------------------------------
+A call to mkdir was unable to create the desired directory:
+
+  Directory: /tmp/openmpi-sessions-788@smaug_0
+  Error:     No space left on device
+
+Please check to ensure you have adequate permissions to perform
+the desired operation.
+--------------------------------------------------------------------------
+[smaug:536006] [[22952,0],0] ORTE_ERROR_LOG: Error in file util/session_dir.c at line 106
+[smaug:536006] [[22952,0],0] ORTE_ERROR_LOG: Error in file util/session_dir.c at line 382
+--------------------------------------------------------------------------
+It looks like orte_init failed for some reason; your parallel process is
+likely to abort.  There are many reasons that a parallel process can
+fail during orte_init; some of which are due to configuration or
+environment problems.  This failure appears to be an internal failure;
+here's some additional information (which may only be relevant to an
+Open MPI developer):
+
+  orte_session_dir failed
+  --> Returned value Error (-1) instead of ORTE_SUCCESS
+--------------------------------------------------------------------------

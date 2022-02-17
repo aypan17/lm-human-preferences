@@ -24,6 +24,18 @@ requests = "==2.18.0"
 tqdm = "==4.31.1"
 typeguard = ">=2.2.2"
 lm-human-preferences = {editable = true,path = "."}
+absl-py = "*"
+wrapt = "*"
+gast = "*"
+astor = "*"
+termcolor = "*"
+keras-applications = "*"
+keras-preprocessing = "*"
+tensorboard = "==1.13.0"
+horovod = "==0.18.1"
+tensorflow-estimator = "==1.13.0"
+transformers = "*"
+tensorflow-gpu = "==1.13.1"
 
 [requires]
 python_version = "3.7"

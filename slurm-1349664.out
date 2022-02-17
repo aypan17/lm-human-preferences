@@ -1,0 +1,352 @@
+hparams:
+  batch_size: 16
+  debug_normalize: 0
+  labels:
+    num_train: 46000
+    source: https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/tldr/online_45k.json
+    type: best_of_4
+  lr: 2.5e-05
+  normalize_after: True
+  normalize_before: True
+  normalize_samples: 256
+  rollout_batch_size: 128
+  run:
+    log_interval: 10
+    save_dir: /tmp/save/train_reward/test
+    save_interval: 50
+    seed: 1
+  task:
+    end_text: None
+    penalty_reward_value: -1
+    policy:
+      initial_model: 124M
+      temperature: 0.7
+    query_dataset: tldr
+    query_length: 500
+    query_prefix: 
+    query_suffix: 
+
+TL;DR:
+    response_length: 75
+    start_text: None
+    truncate_after: 55
+    truncate_token: 198
+hparams:
+  batch_size: 16
+  debug_normalize: 0
+  labels:
+    num_train: 46000
+    source: https://openaipublic.blob.core.windows.net/lm-human-preferences/labels/tldr/online_45k.json
+    type: best_of_4
+  lr: 2.5e-05
+  normalize_after: True
+  normalize_before: True
+  normalize_samples: 256
+  rollout_batch_size: 128
+  run:
+    log_interval: 10
+    save_dir: /tmp/save/train_reward/test
+    save_interval: 50
+    seed: 1
+  task:
+    end_text: None
+    penalty_reward_value: -1
+    policy:
+      initial_model: 124M
+      temperature: 0.7
+    query_dataset: tldr
+    query_length: 500
+    query_prefix: 
+    query_suffix: 
+
+TL;DR:
+    response_length: 75
+    start_text: None
+    truncate_after: 55
+    truncate_token: 198
+model_hparams:
+  attn_pdrop: 0.1
+  embd_pdrop: 0.1
+  head_pdrop: 0.1
+  n_ctx: 1024
+  n_embd: 768
+  n_head: 12
+  n_layer: 12
+  n_vocab: 50257
+  resid_pdrop: 0.1
+model_hparams:
+  attn_pdrop: 0.1
+  embd_pdrop: 0.1
+  head_pdrop: 0.1
+  n_ctx: 1024
+  n_embd: 768
+  n_head: 12
+  n_layer: 12
+  n_vocab: 50257
+  resid_pdrop: 0.1
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/function.py:1007: calling Graph.create_op (from tensorflow.python.framework.ops) with compute_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+Shapes are always computed; don't use the compute_shapes as it has no effect.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/function.py:1007: calling Graph.create_op (from tensorflow.python.framework.ops) with compute_shapes is deprecated and will be removed in a future version.
+Instructions for updating:
+Shapes are always computed; don't use the compute_shapes as it has no effect.
+Param ref_policy/model/heads/value/w is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+Param ref_policy/model/heads/value/b is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/data/ops/dataset_ops.py:429: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/datasets.py:85: DatasetV1.shard (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `dataset.apply(tf.data.experimental.filter_for_shard(...))`.
+Param reward_model/model/heads/reward/w is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+Param reward_model/model/heads/reward/b is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+Param reward_model/reward_norm/gain is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+Param reward_model/reward_norm/bias is missing from checkpoint ./gpt-2/models/124M/main/model.ckpt
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/data/ops/dataset_ops.py:429: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/datasets.py:85: DatasetV1.shard (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `dataset.apply(tf.data.experimental.filter_for_shard(...))`.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_grad.py:102: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+Will save to /tmp/save/train_reward/test
+rank 1: gpus = [0, 1], our gpu = 1
+rank 0: gpus = [0, 1], our gpu = 0
+2022-02-16 21:56:16.017455: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2022-02-16 21:56:16.023794: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2200000000 Hz
+2022-02-16 21:56:16.023944: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x5612eaf1d0f0 executing computations on platform Host. Devices:
+2022-02-16 21:56:16.023953: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): <undefined>, <undefined>
+2022-02-16 21:56:16.028392: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2022-02-16 21:56:16.034881: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2200000000 Hz
+2022-02-16 21:56:16.035002: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x555b4a255db0 executing computations on platform Host. Devices:
+2022-02-16 21:56:16.035010: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): <undefined>, <undefined>
+2022-02-16 21:56:16.833571: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA A100-PCIE-40GB major: 8 minor: 0 memoryClockRate(GHz): 1.41
+pciBusID: 0000:3f:00.0
+totalMemory: 39.59GiB freeMemory: 39.18GiB
+2022-02-16 21:56:16.833617: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 1
+2022-02-16 21:56:16.885935: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: NVIDIA A100-PCIE-40GB major: 8 minor: 0 memoryClockRate(GHz): 1.41
+pciBusID: 0000:3d:00.0
+totalMemory: 39.59GiB freeMemory: 39.18GiB
+2022-02-16 21:56:16.885979: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2022-02-16 21:56:16.900508: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-02-16 21:56:16.900531: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      1 
+2022-02-16 21:56:16.900536: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 1:   N 
+2022-02-16 21:56:16.904205: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 36482 MB memory) -> physical GPU (device: 1, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:3f:00.0, compute capability: 8.0)
+2022-02-16 21:56:16.927012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-02-16 21:56:16.927037: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2022-02-16 21:56:16.927043: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2022-02-16 21:56:16.927642: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 36482 MB memory) -> physical GPU (device: 0, name: NVIDIA A100-PCIE-40GB, pci bus id: 0000:3d:00.0, compute capability: 8.0)
+2022-02-16 21:56:17.564324: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x5612e73471c0 executing computations on platform CUDA. Devices:
+2022-02-16 21:56:17.564362: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): NVIDIA A100-PCIE-40GB, Compute Capability 8.0
+2022-02-16 21:56:17.564367: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (1): NVIDIA A100-PCIE-40GB, Compute Capability 8.0
+2022-02-16 21:56:17.588990: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x555b4379ef90 executing computations on platform CUDA. Devices:
+2022-02-16 21:56:17.589027: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): NVIDIA A100-PCIE-40GB, Compute Capability 8.0
+2022-02-16 21:56:17.589034: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (1): NVIDIA A100-PCIE-40GB, Compute Capability 8.0
+Num labels found in source: 46287
+Num labels found in source: 46287
+2022-02-16 22:01:23.038058: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcublas.so.10.0 locally
+2022-02-16 22:01:23.381121: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcublas.so.10.0 locally
+2022-02-16 22:07:12.249030: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+Traceback (most recent call last):
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1334, in _do_call
+    return fn(*args)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1319, in _run_fn
+    options, feed_dict, fetch_list, target_list, run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1407, in _call_tf_sessionrun
+    run_metadata)
+tensorflow.python.framework.errors_impl.InternalError: Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[{{node sample_seq/step/h0/attn/c_attn/MatMul}}]]
+	 [[{{node strided_slice_12}}]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 328, in train
+    reward_trainer.train()
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 236, in train
+    self.normalize(self.sample_policy_responses, target_mean, target_std)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 214, in normalize
+    query_responses = sample_fn(self.hparams.normalize_samples)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 201, in sample_policy_responses
+    return [sample_policy_batch() for _ in range(n_batches)]
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 201, in <listcomp>
+    return [sample_policy_batch() for _ in range(n_batches)]
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/utils/core.py", line 570, in run
+    return tf.get_default_session().run(op, feed_dict=feed, options=run_options, run_metadata=None)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 929, in run
+    run_metadata_ptr)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1152, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1328, in _do_run
+    run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1348, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.InternalError: Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[node sample_seq/step/h0/attn/c_attn/MatMul (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:96) ]]
+	 [[node strided_slice_12 (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py:109) ]]
+
+Caused by op 'sample_seq/step/h0/attn/c_attn/MatMul', defined at:
+  File "<string>", line 1, in <module>
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 291, in train
+    comm=comm,
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 192, in __init__
+    @utils.graph_function()
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/utils/core.py", line 552, in decorate
+    op = make_op(**phs)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 196, in sample_policy_batch
+    queries=queries, length=hparams.task.response_length)['responses']
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py", line 106, in respond_op
+    extra_outputs={'values':tf.float32},
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/sample.py", line 26, in sample_sequence
+    context_output = step(model_hparams, context)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py", line 56, in step_core
+    do_dropout=do_dropout, padding_token=self.padding_token)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 330, in __call__
+    hparams=self.hparams, seed=block_seed)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 200, in block
+    'attn', nx, past=past, mask=mask, do_dropout=do_dropout, scale=scale, hparams=hparams, seed=attn_seed)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 166, in attn
+    c = conv1x1(x, 'c_attn', n_state * 3, w_init_stdev=w_init_stdev)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 96, in conv1x1
+    c = tf.matmul(tf.reshape(x, [-1, nx]), w) + b
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py", line 2455, in matmul
+    a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/gen_math_ops.py", line 5333, in mat_mul
+    name=name)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 3300, in create_op
+    op_def=op_def)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1801, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+InternalError (see above for traceback): Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[node sample_seq/step/h0/attn/c_attn/MatMul (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:96) ]]
+	 [[node strided_slice_12 (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py:109) ]]
+
+2022-02-16 22:07:26.404293: E tensorflow/stream_executor/cuda/cuda_blas.cc:698] failed to run cuBLAS routine cublasSgemm_v2: CUBLAS_STATUS_EXECUTION_FAILED
+Traceback (most recent call last):
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1334, in _do_call
+    return fn(*args)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1319, in _run_fn
+    options, feed_dict, fetch_list, target_list, run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1407, in _call_tf_sessionrun
+    run_metadata)
+tensorflow.python.framework.errors_impl.InternalError: Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[{{node sample_seq/step/h0/attn/c_attn/MatMul}}]]
+	 [[{{node sample_seq/while/step/Cast}}]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 328, in train
+    reward_trainer.train()
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 236, in train
+    self.normalize(self.sample_policy_responses, target_mean, target_std)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 214, in normalize
+    query_responses = sample_fn(self.hparams.normalize_samples)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 201, in sample_policy_responses
+    return [sample_policy_batch() for _ in range(n_batches)]
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 201, in <listcomp>
+    return [sample_policy_batch() for _ in range(n_batches)]
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/utils/core.py", line 570, in run
+    return tf.get_default_session().run(op, feed_dict=feed, options=run_options, run_metadata=None)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 929, in run
+    run_metadata_ptr)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1152, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1328, in _do_run
+    run_metadata)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/client/session.py", line 1348, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.InternalError: Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[node sample_seq/step/h0/attn/c_attn/MatMul (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:96) ]]
+	 [[node sample_seq/while/step/Cast (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:269) ]]
+
+Caused by op 'sample_seq/step/h0/attn/c_attn/MatMul', defined at:
+  File "<string>", line 1, in <module>
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 291, in train
+    comm=comm,
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 192, in __init__
+    @utils.graph_function()
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/utils/core.py", line 552, in decorate
+    op = make_op(**phs)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/train_reward.py", line 196, in sample_policy_batch
+    queries=queries, length=hparams.task.response_length)['responses']
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py", line 106, in respond_op
+    extra_outputs={'values':tf.float32},
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/sample.py", line 26, in sample_sequence
+    context_output = step(model_hparams, context)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/policy.py", line 56, in step_core
+    do_dropout=do_dropout, padding_token=self.padding_token)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 330, in __call__
+    hparams=self.hparams, seed=block_seed)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 200, in block
+    'attn', nx, past=past, mask=mask, do_dropout=do_dropout, scale=scale, hparams=hparams, seed=attn_seed)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 166, in attn
+    c = conv1x1(x, 'c_attn', n_state * 3, w_init_stdev=w_init_stdev)
+  File "/accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py", line 96, in conv1x1
+    c = tf.matmul(tf.reshape(x, [-1, nx]), w) + b
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py", line 2455, in matmul
+    a, b, transpose_a=transpose_a, transpose_b=transpose_b, name=name)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/ops/gen_math_ops.py", line 5333, in mat_mul
+    name=name)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 3300, in create_op
+    op_def=op_def)
+  File "/accounts/projects/jsteinhardt/aypan/.local/share/virtualenvs/lm-human-preferences-E8-G7n5I/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1801, in __init__
+    self._traceback = tf_stack.extract_stack()
+
+InternalError (see above for traceback): Blas GEMM launch failed : a.shape=(32384, 768), b.shape=(768, 2304), m=32384, n=2304, k=768
+	 [[node sample_seq/step/h0/attn/c_attn/MatMul (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:96) ]]
+	 [[node sample_seq/while/step/Cast (defined at /accounts/projects/jsteinhardt/aypan/lm-human-preferences/lm_human_preferences/language/model.py:269) ]]
+
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[11188,1],1]
+  Exit code:    1
+--------------------------------------------------------------------------

@@ -62,9 +62,10 @@ def get_local_rank_size(comm):
 
 @lru_cache()
 def gpu_devices():
-    if 'CUDA_VISIBLE_DEVICES' in os.environ:
-        raise ValueError('CUDA_VISIBLE_DEVICES should not be set (it will cause nccl slowdowns).  Use VISIBLE_DEVICES instead!')
-    devices_str = os.environ.get('VISIBLE_DEVICES')
+    # if 'CUDA_VISIBLE_DEVICES' in os.environ:
+    #     raise ValueError('CUDA_VISIBLE_DEVICES should not be set (it will cause nccl slowdowns).  Use VISIBLE_DEVICES instead!')
+    # devices_str = os.environ.get('VISIBLE_DEVICES')
+    devices_str = os.environ.get('CUDA_VISIBLE_DEVICES')
     if devices_str is not None:
         return list(map(int, filter(len, devices_str.split(','))))
     else:
@@ -92,11 +93,13 @@ def _our_gpu():
 
 def mpi_session_config():
     """Make a tf.ConfigProto to use only the GPU assigned to this MPI session."""
-    config = tf.ConfigProto()
+    config = tf.compat.v1.ConfigProto()
     gpu = _our_gpu()
     if gpu is not None:
         config.gpu_options.visible_device_list = str(gpu)
     config.gpu_options.allow_growth = True
+    config.gpu_options.per_process_gpu_memory_fraction = 0.9
+    config.gpu_options.polling_inactive_delay_msecs = 10
     return config
 
 
