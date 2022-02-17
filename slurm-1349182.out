@@ -1,4 +1,0 @@
-Usage: pipenv [OPTIONS] COMMAND [ARGS]...
-Try 'pipenv -h' for help.
-
-Error: No such command 'python3'.
